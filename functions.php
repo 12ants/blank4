@@ -419,7 +419,7 @@ function blank4_customize_css() {
   .CodeMirror {
     filter: invert(1);
     width: max-content!important;
-    max-width: 88vw;
+    max-width: 68vw;
     min-width: 27em;
     position: fixed;
     z-index: 12;
@@ -445,7 +445,7 @@ function blank4_customize_css() {
     /* right: 8px; */
     /* float: right; */
     /* bottom: 22px; */
-    position: initial;
+    position: relative;
     /* border: 1px solid #dcdcde; */
     /* box-sizing: border-box; */
 }
@@ -472,6 +472,24 @@ function blank4_customize_css() {
     border: 1px solid #dcdcde;
     border-left: none;
 }
+
+
+#template .submit {
+    margin-top: 1em;
+    position: fixed;
+    right: 186px;
+    top: 44px;
+    z-index: 99;
+    width: fit-content;
+    padding: 0;
+}
+#wpbody-content {
+    padding-bottom: 65px;
+    float: left;
+    width: 100%;
+    overflow: visible;
+}
+
   </style>';
 }
 
