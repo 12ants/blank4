@@ -426,11 +426,18 @@ function blank4_customize_css() {
 
     filter: invert(1);
     margin: 0;
-    background: #eeeeee;
+    background: #ffffff;
   
 }
   </style>';
 }
+
+/**
+ * Customizer additions.
+ */
+
+add_action('admin_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
+
 
 
 
