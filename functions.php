@@ -76,7 +76,7 @@ function blank4_setup() {
 		apply_filters(
 			'blank4_custom_background_args',
 			array(
-				'default-color' => 'ffffff',
+				'default-color' => '222222',
 				'default-image' => '',
 			)
 		)
@@ -411,33 +411,70 @@ function ob_plug_register_required_plugins()
 	tgmpa($plugins, $config);
 }
 
-
-
-
-/**
- * Customizer additions.
- */
-
 add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
 
 function blank4_customize_css() {
   echo '<style>
-  .CodeMirror  {
-
-    filter: invert(1);
-    margin: 0;
-    background: #ffffff;
   
+  .CodeMirror {
+    filter: invert(1);
+    width: max-content!important;
+    max-width: 88vw;
+    min-width: 27em;
+    position: fixed;
+    z-index: 12;
+    float: left;
+    display: table-cell;
+    left: 0;
+    margin: -8px;
+    max-height: 90%!important;
+    height: 100%!important;
+    /* top: 122px; */
+    /* bottom: 42px; */
+    opacity: 0.94;
+    background: #ffffff;
+    overflow-x: visible;
+    bottom: 44px;
+    resize: horizontal;
+}
+
+#template .CodeMirror, #template textarea {
+    /* max-width: 60vw; */
+    /* max-height: 60vh; */
+    /* height: calc(100vh - 295px); */
+    /* right: 8px; */
+    /* float: right; */
+    /* bottom: 22px; */
+    position: initial;
+    /* border: 1px solid #dcdcde; */
+    /* box-sizing: border-box; */
+}
+
+
+#templateside {
+    float: ;
+    z-index: 14;
+    opacity: .8;
+    margin: -1em;
+    position: relative;
+    width: 16em;
+    word-wrap: break-word;
+}
+#templateside>ul {
+    box-sizing: border-box;
+    margin-top: 0;
+    overflow: auto;
+    padding: 0;
+    max-height: 88vh;
+    min-height: 2em;
+    height: fit-content;
+    background-color: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-left: none;
 }
   </style>';
 }
 
-/**
- * Customizer additions.
- */
 
 add_action('admin_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
-
-
-
 
