@@ -416,38 +416,40 @@ add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is 
 function blank4_customize_css() {
   echo '<style>
   
+  .customize-section-description-container+#customize-control-custom_css:last-child .CodeMirror {
+    height: 42em;
+    width: 42em;
+}
+  
+  
   .CodeMirror {
-    filter: invert(1);
-    width: max-content!important;
-    max-width: 68vw;
-    min-width: 27em;
+    filter: invert(.98);
     position: fixed;
     z-index: 12;
-    float: left;
-    display: table-cell;
-    left: 0;
-    margin: -8px;
-    max-height: 90%!important;
-    height: 100%!important;
-    /* top: 122px; */
-    /* bottom: 42px; */
+    display: block;
+    margin: 0;
+    max-height: 88%;
     opacity: 0.94;
     background: #ffffff;
-    overflow-x: visible;
-    bottom: 44px;
-    resize: horizontal;
+    top: 120px;
+    resize: both;
 }
 
+
+/*
+
 #template .CodeMirror, #template textarea {
-    /* max-width: 60vw; */
-    /* max-height: 60vh; */
-    /* height: calc(100vh - 295px); */
-    /* right: 8px; */
-    /* float: right; */
-    /* bottom: 22px; */
-    position: relative;
-    /* border: 1px solid #dcdcde; */
-    /* box-sizing: border-box; */
+    max-width: 89%;
+    height: 69%;
+    left: 160px;
+    float: unset;
+   z-index: 88888;
+    top: auto;
+    display: table-cell;
+    overflow: hidden;
+    position: fixed;
+    border:0;
+    box-sizing: border-box;
 }
 
 
@@ -489,7 +491,105 @@ function blank4_customize_css() {
     width: 100%;
     overflow: visible;
 }
+*/
 
+
+#templateside {
+float: right;
+z-index: 14;
+opacity: .8;
+margin: -1em;
+right: 0;
+position: fixed;
+z-index: 9999999999999;
+width: 16em;
+word-wrap: break-word;
+}
+.wrap:has(#template)>*:not(.CodeMirror) {
+    width: 100%;
+    display: inline-flex;
+    height: 2em;
+    /* mix-blend-mode: color-burn; */
+    /* position: inherit; */
+    margin: auto;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    /* background: #ffffff66; */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.wrap:has(#template) {
+    margin: 0;
+    width: 100%;
+    display: table-cell;
+}
+#template .CodeMirror, #template textarea {
+    width: 86%;
+    height: 100%;
+    max-height: 100%;
+    left: 160px;
+    float: unset;
+    z-index: 88888;
+    top: 0;
+    border-top: 99px solid #dddddd!important;
+    display: table-cell;
+    overflow: hidden;
+    position: fixed;
+    border: 0;
+    box-sizing: border-box;
+}
+#template>div {
+    /* margin-right: 16em; */
+    /* padding: 8px; */
+    top: -4em;
+    margin: auto;
+    left: -12%;
+    /* width: 40em; */
+    /* display: revert; */
+    /* z-index: 999999999; */
+    /* position: initial; */
+    z-index: 99;
+    /* background: #ffffff88; */
+}
+
+#template #documentation {
+    top: -4em;
+    padding: 2px;
+    left: 11em;
+    margin: 9px;
+    z-index: 999;
+    position: relative;
+}
+#template .submit {
+    position: fixed;
+    top: 6em;
+    z-index: 99999999;
+    padding: 0;
+}
+
+.fileedit-sub {
+padding: 8px;
+display: flex;
+width: 100%;
+top: 44px;
+background: #ffffff88;
+position: fixed;
+    z-index: 999999;
+
+}
+.fileedit-sub #plugin, .fileedit-sub #theme {
+    max-width: 40%;
+    position: relative;
+    z-index: 99999;
+}
+#template .submit {
+    position: fixed;
+    /* right: 2em; */
+    z-index: 99999999;
+    padding: 12px;
+}
   </style>';
 }
 
