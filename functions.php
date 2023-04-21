@@ -416,11 +416,6 @@ add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is 
 function blank4_customize_css() {
   echo '<style>
   
-  .customize-section-description-container+#customize-control-custom_css:last-child .CodeMirror {
-    height: 42em;
-    width: 42em;
-}
-  
   
   .CodeMirror {
     filter: invert(.98);
@@ -436,7 +431,7 @@ function blank4_customize_css() {
 }
 
 
-/*
+
 
 #template .CodeMirror, #template textarea {
     max-width: 89%;
