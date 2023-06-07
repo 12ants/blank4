@@ -76,8 +76,3 @@
             <!-- #site-navigation -->
         </header>
         <!-- #masthead -->
-    </div>
-</body>
-
-</html>
-</div>
