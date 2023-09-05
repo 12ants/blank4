@@ -416,176 +416,24 @@ add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is 
 function blank4_customize_css() {
   echo '<style>
   
-  
+
+
   .CodeMirror {
-    filter: invert(.98);
-    position: fixed;
-    z-index: 12;
-    display: block;
-    margin: 0;
-    max-height: 88%;
-    opacity: 0.94;
-    background: #ffffff;
-    top: 120px;
-    resize: both;
+	filter: invert(.98) opacity(.96);
 }
 
 
-
-
-#template .CodeMirror, #template textarea {
-    max-width: 89%;
-    height: 69%;
-    left: 160px;
-    float: unset;
-   z-index: 88888;
-    top: auto;
-    display: table-cell;
-    overflow: hidden;
-    position: fixed;
-    border:0;
-    box-sizing: border-box;
+.collapsed .customize-control  .CodeMirror{
+	top: 0;
+	position: fixed;
+	left: 0;
+	resize: both;
+	z-index: 999999;
+	
 }
-
-
-#templateside {
-    float: ;
-    z-index: 14;
-    opacity: .8;
-    margin: -1em;
-    position: relative;
-    width: 16em;
-    word-wrap: break-word;
-}
-#templateside>ul {
-    box-sizing: border-box;
-    margin-top: 0;
-    overflow: auto;
-    padding: 0;
-    max-height: 88vh;
-    min-height: 2em;
-    height: fit-content;
-    background-color: #f6f7f7;
-    border: 1px solid #dcdcde;
-    border-left: none;
-}
-
-
-#template .submit {
-    margin-top: 1em;
-    position: fixed;
-    right: 186px;
-    top: 44px;
-    z-index: 99;
-    width: fit-content;
-    padding: 0;
-}
-#wpbody-content {
-    padding-bottom: 65px;
-    float: left;
-    width: 100%;
-    overflow: visible;
-}
-*/
-
-
-#templateside {
-float: right;
-z-index: 14;
-opacity: .8;
-margin: -1em;
-right: 0;
-position: fixed;
-z-index: 9999999999999;
-width: 16em;
-word-wrap: break-word;
-}
-.wrap:has(#template)>*:not(.CodeMirror) {
-    width: 100%;
-    display: inline-flex;
-    height: 2em;
-    /* mix-blend-mode: color-burn; */
-    /* position: inherit; */
-    margin: auto;
-    z-index: 999;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
-    /* background: #ffffff66; */
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.wrap:has(#template) {
-    margin: 0;
-    width: 100%;
-    display: table-cell;
-}
-#template .CodeMirror, #template textarea {
-    width: 86%;
-    height: 100%;
-    max-height: 100%;
-    left: 160px;
-    float: unset;
-    z-index: 88888;
-    top: 0;
-    border-top: 99px solid #dddddd!important;
-    display: table-cell;
-    overflow: hidden;
-    position: fixed;
-    border: 0;
-    box-sizing: border-box;
-}
-#template>div {
-    /* margin-right: 16em; */
-    /* padding: 8px; */
-    top: -4em;
-    margin: auto;
-    left: -12%;
-    /* width: 40em; */
-    /* display: revert; */
-    /* z-index: 999999999; */
-    /* position: initial; */
-    z-index: 99;
-    /* background: #ffffff88; */
-}
-
-#template #documentation {
-    top: -4em;
-    padding: 2px;
-    left: 11em;
-    margin: 9px;
-    z-index: 999;
-    position: relative;
-}
-#template .submit {
-    position: fixed;
-    top: 6em;
-    z-index: 99999999;
-    padding: 0;
-}
-
-.fileedit-sub {
-padding: 8px;
-display: flex;
-width: 100%;
-top: 44px;
-background: #ffffff88;
-position: fixed;
-    z-index: 999999;
-
-}
-.fileedit-sub #plugin, .fileedit-sub #theme {
-    max-width: 40%;
-    position: relative;
-    z-index: 99999;
-}
-#template .submit {
-    position: fixed;
-    /* right: 2em; */
-    z-index: 99999999;
-    padding: 12px;
-}
-  </style>';
+  </style>
+  
+  ';
 }
 
 
