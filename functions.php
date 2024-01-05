@@ -1,4 +1,5 @@
 <?php
+
 /**
  * blank4 functions and definitions
  *
@@ -7,9 +8,9 @@
  * @package blank4
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
 /**
@@ -19,17 +20,18 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function blank4_setup() {
+function blank4_setup()
+{
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
 		* If you're building a theme based on blank4, use a find and replace
 		* to change 'blank4' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'blank4', get_template_directory() . '/languages' );
+	load_theme_textdomain('blank4', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	/*
 		* Let WordPress manage the document title.
@@ -37,19 +39,19 @@ function blank4_setup() {
 		* hard-coded <title> tag in the document head, and expect WordPress to
 		* provide it for us.
 		*/
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'blank4' ),
+			'menu-1' => esc_html__('Primary', 'blank4'),
 		)
 	);
 
@@ -83,7 +85,7 @@ function blank4_setup() {
 	);
 
 	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support('customize-selective-refresh-widgets');
 
 	/**
 	 * Add support for core custom logo.
@@ -100,7 +102,7 @@ function blank4_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'blank4_setup' );
+add_action('after_setup_theme', 'blank4_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -109,22 +111,24 @@ add_action( 'after_setup_theme', 'blank4_setup' );
  *
  * @global int $content_width
  */
-function blank4_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'blank4_content_width', 640 );
+function blank4_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('blank4_content_width', 640);
 }
-add_action( 'after_setup_theme', 'blank4_content_width', 0 );
+add_action('after_setup_theme', 'blank4_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function blank4_widgets_init() {
+function blank4_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'blank4' ),
+			'name'          => esc_html__('Sidebar', 'blank4'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'blank4' ),
+			'description'   => esc_html__('Add widgets here.', 'blank4'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -132,22 +136,23 @@ function blank4_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'blank4_widgets_init' );
+add_action('widgets_init', 'blank4_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function blank4_scripts() {
-	wp_enqueue_style( 'blank4-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'blank4-style', 'rtl', 'replace' );
+function blank4_scripts()
+{
+	wp_enqueue_style('blank4-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('blank4-style', 'rtl', 'replace');
 
-	wp_enqueue_script( 'blank4-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script('blank4-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'blank4_scripts' );
+add_action('wp_enqueue_scripts', 'blank4_scripts');
 
 /**
  * Implement the Custom Header feature.
@@ -205,7 +210,7 @@ function ob_plug_register_required_plugins()
 	$plugins = array(
 
 		// This is an example of how to include a plugin bundled with a theme.
-			array(
+		array(
 			'name' => 'webp-express', // The plugin name.
 			'slug' => 'webp-express', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
@@ -215,7 +220,7 @@ function ob_plug_register_required_plugins()
 			'external_url' => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-			array(
+		array(
 			'name' => 'wp-migration-duplicator', // The plugin name.
 			'slug' => 'wp-migration-duplicator', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
@@ -224,9 +229,9 @@ function ob_plug_register_required_plugins()
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 			'external_url' => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),	
-			
-			array(
+		),
+
+		array(
 			'name' => '1-lightbox-webp', // The plugin name.
 			'slug' => '1-lightbox', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
@@ -236,8 +241,8 @@ function ob_plug_register_required_plugins()
 			'source' => 'https://github.com/12ants/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-		
-			array(
+
+		array(
 			'name' => 'fastdup', // The plugin name.
 			'slug' => 'fastdup', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
@@ -249,7 +254,7 @@ function ob_plug_register_required_plugins()
 		),
 
 		// This is an example of how to include a plugin from an arbitrary external source in your theme.
-			array(
+		array(
 			'name' => 'simple-history', // The plugin name.
 			'slug' => 'simple-history', // The plugin slug (typically the folder name).
 			'required' => false,
@@ -262,29 +267,29 @@ function ob_plug_register_required_plugins()
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 
-			array(
+		array(
 			'name' => 'instant-css',
 			'slug' => 'instant-css',
 			'required' => false,
 		),
-			array(
+		array(
 			'name' => 'white-label-cms',
 			'slug' => 'white-label-cms',
 			'required' => false,
 		),
-			array(
+		array(
 			'name' => 'filester',
 			'slug' => 'filester',
 			'required' => false,
 		),
 
-			array(
+		array(
 			'name' => 'cloudflare',
 			'slug' => 'cloudflare',
 			'required' => false,
 		),
 
-			array(
+		array(
 			'name' => 'really-simple-ssl',
 			'slug' => 'really-simple-ssl',
 			'required' => false,
@@ -292,14 +297,14 @@ function ob_plug_register_required_plugins()
 
 
 
-			array(
+		array(
 			'name' => 'speed-booster-pack',
 			'slug' => 'speed-booster-pack',
 			'required' => false,
 		),
 
 
-			array(
+		array(
 			'name' => 'wp-seopress',
 			'slug' => 'wp-seopress',
 			'required' => false,
@@ -330,12 +335,12 @@ function ob_plug_register_required_plugins()
 		'is_automatic' => true, // Automatically activate plugins after installation or not.
 		'message' => '-- ONLY INSTALL ONE PLUGIN AT A TIME --', // Message to output right before the plugins table.
 
-		
-	 'strings'      => array(
-	 'page_title'                      => __( 'Install Required Plugins', 'ob_plug' ),
-	 'menu_title'                      => __( 'Recommended Plugins', 'ob_plug' ),
-		 )
-	 /* translators: %s: plugin name. * /
+
+		'strings'      => array(
+			'page_title'                      => __('Install Required Plugins', 'ob_plug'),
+			'menu_title'                      => __('Recommended Plugins', 'ob_plug'),
+		)
+		/* translators: %s: plugin name. * /
 	 'installing'                      => __( 'Installing Plugin: %s', 'ob_plug' ),
 	 /* translators: %s: plugin name. * /
 	 'updating'                        => __( 'Updating Plugin: %s', 'ob_plug' ),
@@ -410,32 +415,25 @@ function ob_plug_register_required_plugins()
 
 	tgmpa($plugins, $config);
 }
+
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
 
 function blank4_customize_css() {
   echo '<style>
-  
 
-
-  .CodeMirror {
-	filter: invert(.98) opacity(.96);
+.CodeMirror {
+    filter: invert(.98) opacity(.9);
 }
 
-
-.collapsed .customize-control  .CodeMirror{
-	top: 0;
-	position: fixed;
-	left: 0;
-	resize: both;
-	z-index: 999999;
-	
-}
-  </style>
-  
-  ';
+.collapsed .customize-control .CodeMirror{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 40%;
+    resize: both;
+    z-index: 9999;
 }
 
-
-add_action('admin_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
-
+</style>';
+}
