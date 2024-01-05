@@ -416,6 +416,7 @@ function ob_plug_register_required_plugins()
 	tgmpa($plugins, $config);
 }
 
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 add_action('customize_controls_head', 'blank4_customize_css'); // admin_head is a hook my_custom_fonts is a function we are adding it to the hook
 
 function blank4_customize_css() {
